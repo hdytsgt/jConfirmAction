@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>jConfirmAction Demo | Webstuffshare.com</title>
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="demo.css" />
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="jconfirmaction.jquery.js"></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+				
+				
+				$('.ask-plain').click(function(e) {
+					
+					e.preventDefault();
+					thisHref	= $(this).attr('href');
+					
+					if(confirm('Are you sure')) {
+						window.location = thisHref;
+					}
+					
+				});
+				
+				$('.ask-custom').jConfirmAction({question : $(this).attr('title'), yesAnswer : "Ya", cancelAnswer : "Tidak"});
+				$('.ask').jConfirmAction();
+				
+				$('label').click(function() {
+					$('#container').append('<a class="ask">aaaaaa</a><br/>');
+				});
+				
+			});
+			
+		</script>
+</head>
+<body>
+<span class="title">jConfirmAction Demo</span>
+<br/><br/>
+<div id="container">
+	<label>Without Plugin</label>
+	: <a href="delete.html" class="ask-plain">Delete Me</a>
+	<hr/>
+	<label>Using Plugin With Default Confirmation</label>
+	: <a href="delete.html" class="ask">Delete Me</a>
+	<hr/>
+	<label>Customized Language (Indonesian) </label>
+	: <a href="delete.html" title="sample" class="ask-custom"><img src="images/trash.png" border="0" align="absbottom" /></a>
+</div>
+<br/>
+<span class="title"><a href="http://www.webstuffshare.com/2010/03/codesnippet-jquery-confirm-users-action">&laquo; Download</a></span>
+</body>
+</html>
